@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://bifrostvnode.github.io/news/article-46906.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 垃圾回收机制原理详解</title>
+        <meta name="description" content="目录  1. 引用计数 2. 标记-清除 3. 分代回收  4. 其他   4.1 JNI(Java Native Interface)    总结   Python 的GC模块主要运用了引用计数来跟" />
+        <link rel="icon" href="/assets/website/img/bifrostvnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Bifrostv Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bifrostvnode.github.io/news/article-46906.htm" />
+    <meta property="og:site_name" content="Bifrostv Node机场节点订阅官网" />
+    <meta property="og:title" content="Python 垃圾回收机制原理详解" />
+    <meta property="og:image" content="https://bifrostvnode.github.io/uploads/20240911/ed682d4b4c85fb17b070d80944f40637.webp" />
+        <meta property="og:release_date" content="2025-01-27T08:18:31" />
+    <meta property="og:updated_time" content="2025-01-27T08:18:31" />
+        <meta property="og:description" content="目录  1. 引用计数 2. 标记-清除 3. 分代回收  4. 其他   4.1 JNI(Java Native Interface)    总结   Python 的GC模块主要运用了引用计数来跟" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python 垃圾回收机制原理详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/meanmenu.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/boxicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/bifrostvnode/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EBSBDJ3LPE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EBSBDJ3LPE');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="loader">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-area fixed-top">
+        <div class="mobile-nav">
+            <a href="/" class="logo">
+                Bifrostv Node
+            </a>
+        </div>
+        <div class="main-nav">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                                        <a class="navbar-brand" href="/">
+                        <span>Bifrostv Node</span>
+                    </a>
+                                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a href="/" class="nav-link">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/free-nodes/" class="nav-link">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/paid-subscribe/" class="nav-link">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="/news/" class="nav-link">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a href="#" class="nav-link">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="page-title-area">
+        <img src="/assets/website/img/bifrostvnode/footer-car.png" alt="Title">
+        <div class="container">
+            <div class="page-title-content">
+                <h1>Python 垃圾回收机制原理详解</h1>
+                <ul>
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+                    <li>
+                        <i class='bx bx-chevron-right'></i>
+                    </li>
+                    <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                    <li>
+                        <i class='bx bx-chevron-right'></i>
+                    </li>
+                    <li>正文</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="process-area pt-100 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>目录</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://freexyz.cn/dev/109919.html#_label0"  title="1. 引用计数" rel="nofollow">1. 引用计数</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://freexyz.cn/dev/109919.html#_label1"  title="2. 标记-清除" rel="nofollow">2. 标记-清除</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://freexyz.cn/dev/109919.html#_label2"  title="3. 分代回收" rel="nofollow">3. 分代回收</a></li> <li> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://freexyz.cn/dev/109919.html#_label3"  title="4. 其他" rel="nofollow">4. 其他</a> </p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://freexyz.cn/dev/109919.html#_lab2_3_0"  title="4.1 JNI(Java Native Interface)" rel="nofollow">4.1 JNI(Java Native Interface)</a></li> </ul> </li> <li> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://freexyz.cn/dev/109919.html#_label4"  title="总结" rel="nofollow">总结</a> </li> </ul> <p>Python 的GC模块主要运用了引用计数来跟踪和回收垃圾；通过“标记-清除”解决容器对象可能产生的循环引用问题；通过分代回收以空间换时间进一步提高垃圾回收的效率。</p> <p>也即采用“引用计数“为主(实时性，一旦没有引用，内存就直接释放了)，“标记-清除”与“分代收集”两种机制为辅的策略。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p><a name="_label0" rel="nofollow"></a></p> <h2>1. 引用计数</h2> <p>为每一个对象维护一个引用计数器，当一个对象的引用被创建或者复制时，(对象的引用)计数器+1，当一个对象的引用被销毁时，计数器的值-1，当计数器的值为0时，就意味着对象已经再没有被使用了，可以将其内存释放掉。</p> <p><a name="_label1" rel="nofollow"></a></p> <h2>2. 标记-清除</h2> <p>“标记-清除”的出现打破了循环引用，也就是它只关注那些可能会产生循环引用的对象，Python中的循环引用总是发生在容器container对象之间，也就是能够在内部持有其他对象的对象(比如：list、dict、class等)。这也使得该方法带来的开销只依赖于容器对象的数量。</p> <p><strong>原理：</strong></p> <p>将集合中对象的引用计数复制一份副本，用于找寻root object集合(该set中的对象是不能被回收的)。当成功找到root object集合，首先将现在的内存链表一分为二，一条链表维护root object集合，成为root链表；另外一条维护剩下的对象，成为unreachable链表。</p> <p>一旦在标记的过程中，发现现在在unreachable链表且可能存在被root链表中直接或间接引用的对象，就将其从unreachable链表中移到root链表中；当完成标记后，unreachable链表中剩下的所有对象就是垃圾对象了，接下来的垃圾回收只需限制在unreachable链表中即可。</p> <p><strong>缺点：</strong></p> <p>该机制所带来的额外操作和需要回收的内存块成正比。</p> <p><a name="_label2" rel="nofollow"></a></p> <h2>3. 分代回收</h2> <p>活的越长的对象，就越不可能是垃圾，就应该减少对它的垃圾收集频率。</p> <p><a name="_label3" rel="nofollow"></a></p> <h2>4. 其他</h2> <p><a name="_lab2_3_0" rel="nofollow"></a></p> <h3>4.1 JNI(Java Native Interface)</h3> <p>提供了若干的API，实现Java与其他语言的通信。</p> <p><a name="_label4" rel="nofollow"></a></p> <h2>总结</h2> <p>本篇文章就到这里了，希望能够给你带来帮助，也希望您能够多多关注的更多内容!</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46435.htm">办宠物食品加工厂需要投资多少钱呢 办宠物食品加工厂需要投资多少钱呢视频</a></p>
+                                        <p>下一个：<a href="/news/article-46907.htm">国内十大宠物粮食品牌排名榜最新图片（宠物粮销量排名）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-node-share.htm" title="10月30日→21.8M/S|2024年最新免费节点Bifrostv Node订阅链接地址">10月30日→21.8M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-subscribe-node.htm" title="11月2日→18.6M/S|2024年最新免费节点Bifrostv Node订阅链接地址">11月2日→18.6M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36189.htm" title="免费领养宠物猫的正规平台（正规免费领养宠物猫app）">免费领养宠物猫的正规平台（正规免费领养宠物猫app）</a></li>
+                        <li class="py-2"><a href="/news/article-31229.htm" title="动物疫苗接种时间表最新消息查询电话（动物疫苗价格查询）">动物疫苗接种时间表最新消息查询电话（动物疫苗价格查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-node-share.htm" title="1月22日→21.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址">1月22日→21.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45931.htm" title="动物疫苗使用注意事项有哪些内容 动物疫苗使用注意事项有哪些内容呢">动物疫苗使用注意事项有哪些内容 动物疫苗使用注意事项有哪些内容呢</a></li>
+                        <li class="py-2"><a href="/news/article-46906.htm" title="Python 垃圾回收机制原理详解">Python 垃圾回收机制原理详解</a></li>
+                        <li class="py-2"><a href="/news/article-30830.htm" title="动物防疫工作报告怎么写（动物防疫年度报告范文）">动物防疫工作报告怎么写（动物防疫年度报告范文）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-node-subscribe.htm" title="10月29日→20.5M/S|2024年最新免费节点Bifrostv Node订阅链接地址">10月29日→20.5M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26595.htm" title="宠物粮品牌名称大全及图片（宠物粮食排行榜）">宠物粮品牌名称大全及图片（宠物粮食排行榜）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer>
+        <div class="container">
+            <div class="copyright-area">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-item text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Bifrostv Node机场节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script data-cfasync="false" src="/assets/website/js/frontend/bifrostvnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/jquery.meanmenu.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/jquery.mixitup.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/form-validator.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/contact-form-script.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/bifrostvnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
