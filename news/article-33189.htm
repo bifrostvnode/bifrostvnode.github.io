@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://bifrostvnode.github.io/news/article-33189.htm" />
@@ -8,6 +8,33 @@
     <title>java8新特性Stream流中anyMatch和allMatch和noneMatch的区别详解</title>
         <meta name="description" content="判断数据列表中是否存在任意一个元素符合设置的predicate条件，如果是就返回true，否则返回false。  接口定义：   boolean anyMatch(Predicate&lt;? sup" />
         <link rel="icon" href="/assets/website/img/bifrostvnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Bifrostv Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bifrostvnode.github.io/news/article-33189.htm" />
+    <meta property="og:site_name" content="Bifrostv Node机场节点订阅官网" />
+    <meta property="og:title" content="java8新特性Stream流中anyMatch和allMatch和noneMatch的区别详解" />
+    <meta property="og:image" content="https://bifrostvnode.github.io/uploads/20240911/4f286437ef99930ff2754e2df800f417.webp" />
+        <meta property="og:release_date" content="2024-12-30T09:01:57" />
+    <meta property="og:updated_time" content="2024-12-30T09:01:57" />
+        <meta property="og:description" content="判断数据列表中是否存在任意一个元素符合设置的predicate条件，如果是就返回true，否则返回false。  接口定义：   boolean anyMatch(Predicate&lt;? sup" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java8新特性Stream流中anyMatch和allMatch和noneMatch的区别详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
     <link rel="stylesheet" href="/assets/website/css/bifrostvnode/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/bifrostvnode/meanmenu.css">
     <link rel="stylesheet" href="/assets/website/css/bifrostvnode/boxicons.min.css">
@@ -121,16 +148,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-node-subscribe-links.htm" title="10月11日→18.3M/S|2024年最新免费节点Bifrostv Node订阅链接地址">10月11日→18.3M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-24735.htm" title="宠物店粮食一个月要多少斤正常 宠物店粮食一个月要多少斤正常呢">宠物店粮食一个月要多少斤正常 宠物店粮食一个月要多少斤正常呢</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-19-free-high-speed-nodes.htm" title="9月19日→19.9M/S|2024年最新免费节点Bifrostv Node订阅链接地址">9月19日→19.9M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe.htm" title="10月17日→18M/S|2024年最新免费节点Bifrostv Node订阅链接地址">10月17日→18M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-30830.htm" title="动物防疫工作报告怎么写（动物防疫年度报告范文）">动物防疫工作报告怎么写（动物防疫年度报告范文）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-29-node-share-links.htm" title="9月29日→18.6M/S|2024年最新免费节点Bifrostv Node订阅链接地址">9月29日→18.6M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-20594.htm" title="python初始化方法">python初始化方法</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-node-subscribe.htm" title="10月25日→18.7M/S|2024年最新免费节点Bifrostv Node订阅链接地址">10月25日→18.7M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-node-subscribe-links.htm" title="10月8日→21M/S|2024年最新免费节点Bifrostv Node订阅链接地址">10月8日→21M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-node-subscribe.htm" title="11月7日→20M/S|2024年最新免费节点Bifrostv Node订阅链接地址">11月7日→20M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30342.htm" title="长春宠物医院电话号码是多少?（长春宠物医院电话号码是多少啊）">长春宠物医院电话号码是多少?（长春宠物医院电话号码是多少啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-node-share-links.htm" title="1月1日→18.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址">1月1日→18.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-node-share-links.htm" title="12月11日→18.9M/S|2024年最新免费节点Bifrostv Node订阅链接地址">12月11日→18.9M/S|2024年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-44948.htm" title="宠物粮食业务员 宠物粮食业务员好做吗">宠物粮食业务员 宠物粮食业务员好做吗</a></li>
+                        <li class="py-2"><a href="/news/article-41969.htm" title="南京免费领养宠物的地方在哪里啊 南京免费领养宠物的地方在哪里啊多少钱">南京免费领养宠物的地方在哪里啊 南京免费领养宠物的地方在哪里啊多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-44456.htm" title="宠物疫苗要多少钱（宠物疫苗要多少钱一针）">宠物疫苗要多少钱（宠物疫苗要多少钱一针）</a></li>
+                        <li class="py-2"><a href="/news/article-40477.htm" title="天宠宠物医院总店地址（天宠宠物加盟）">天宠宠物医院总店地址（天宠宠物加盟）</a></li>
+                        <li class="py-2"><a href="/news/article-21966.htm" title="常用的动物疫苗（动物疫苗的作用）">常用的动物疫苗（动物疫苗的作用）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-node-share-links.htm" title="1月14日→20.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址">1月14日→20.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40478.htm" title="宠福鑫动物医院（宠福鑫动物医院完全分院）">宠福鑫动物医院（宠福鑫动物医院完全分院）</a></li>
                     </ul>
     </div>
 </div>
@@ -142,19 +169,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
