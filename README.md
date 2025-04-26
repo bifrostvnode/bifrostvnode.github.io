@@ -1,4 +1,4 @@
-# 4月22日→18.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址  更新时间 2025-04-22 08:44:01
+# 4月26日→19.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址  更新时间 2025-04-26 08:01:51
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://bifrostvnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://bifrostvnode.github.io/uploads/2025/04/0-20250422.yaml
-- https://bifrostvnode.github.io/uploads/2025/04/1-20250422.yaml
-- https://bifrostvnode.github.io/uploads/2025/04/2-20250422.yaml
-- https://bifrostvnode.github.io/uploads/2025/04/3-20250422.yaml
-- https://bifrostvnode.github.io/uploads/2025/04/4-20250422.yaml
+- https://bifrostvnode.github.io/uploads/2025/04/0-20250426.yaml
+- https://bifrostvnode.github.io/uploads/2025/04/1-20250426.yaml
+- https://bifrostvnode.github.io/uploads/2025/04/2-20250426.yaml
+- https://bifrostvnode.github.io/uploads/2025/04/3-20250426.yaml
+- https://bifrostvnode.github.io/uploads/2025/04/4-20250426.yaml
 
 ### V2ray订阅链接
 
-- https://bifrostvnode.github.io/uploads/2025/04/0-20250422.txt
-- https://bifrostvnode.github.io/uploads/2025/04/1-20250422.txt
-- https://bifrostvnode.github.io/uploads/2025/04/2-20250422.txt
-- https://bifrostvnode.github.io/uploads/2025/04/3-20250422.txt
-- https://bifrostvnode.github.io/uploads/2025/04/4-20250422.txt
+- https://bifrostvnode.github.io/uploads/2025/04/0-20250426.txt
+- https://bifrostvnode.github.io/uploads/2025/04/1-20250426.txt
+- https://bifrostvnode.github.io/uploads/2025/04/2-20250426.txt
+- https://bifrostvnode.github.io/uploads/2025/04/3-20250426.txt
+- https://bifrostvnode.github.io/uploads/2025/04/4-20250426.txt
 
 ### Sing-box订阅链接
 
-- https://bifrostvnode.github.io/uploads/2025/04/20250422.json
+- https://bifrostvnode.github.io/uploads/2025/04/20250426.json
 
 ## 更多clash节点订阅 ：
 
