@@ -373,19 +373,9 @@ ssserver -p 8388 -k </span><span><span class="hljs-string">"你的密码"</span>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆插件如何提高抗封锁能力？</h5></div>
+    <div class="panel-heading"><h5>Mihomo 的日志功能如何调试连接问题？</h5></div>
     <div class="panel-body">
-        通过混淆插件可以模拟正常 HTTPS 或 HTTP 流量，隐藏真实通信特征。合理选择混淆方式，可有效避免 DPI 检测，提高节点可用性和连接稳定性，保证长期科学上网。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Profile URL 是否可以同时添加多个？</h5></div>
-    <div class="panel-body">
-        可以。Clash 支持导入多个 Profile URL，用户可在“配置”面板切换不同订阅源。多个配置之间互不干扰，方便区分不同地区或用途的线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 协议支持 UDP 吗？</h5></div>
-    <div class="panel-body">
-        支持。Trojan 在最新版本中已支持 UDP 转发，能够满足游戏、视频会议等实时性需求较高的应用场景，性能和兼容性都有明显提升。<hr />    </div>
+        Mihomo 日志可显示节点连接、请求延迟和错误信息。通过分析日志，可以判断节点是否不可达、TLS 握手失败或规则匹配异常，从而快速定位问题并解决。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 是否支持系统代理？</h5></div>
@@ -403,9 +393,9 @@ ssserver -p 8388 -k </span><span><span class="hljs-string">"你的密码"</span>
         根据网络封锁情况选择适合的混淆和协议组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。不同组合对抗 DPI 和封锁能力不同，需要测试后选择最稳定和高效的方案。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的脚本功能能实现哪些高级操作？</h5></div>
+    <div class="panel-heading"><h5>SSR 的混淆和协议设置如何选择才能绕过封锁？</h5></div>
     <div class="panel-body">
-        QuantumultX 支持 JavaScript 脚本，可用于请求重写、数据修改、自动签到、广告拦截等功能。用户可通过脚本中心导入开源脚本，极大增强应用的灵活性与自动化能力。<hr />    </div>
+        选择模拟 HTTPS 的混淆方式如 tls1.2_ticket_auth，并搭配 AEAD 或协议插件，可以有效隐藏流量特征，降低被封锁风险。不同网络环境需测试选择最优组合。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的协议和混淆组合如何选择？</h5></div>
@@ -413,14 +403,24 @@ ssserver -p 8388 -k </span><span><span class="hljs-string">"你的密码"</span>
         根据网络封锁情况选择合适协议和混淆组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。选择最佳组合可提高抗封锁能力和稳定性，保证节点长期可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆和协议设置如何选择才能绕过封锁？</h5></div>
+    <div class="panel-heading"><h5>Clash 的 Profile URL 是否可以同时添加多个？</h5></div>
     <div class="panel-body">
-        选择模拟 HTTPS 的混淆方式如 tls1.2_ticket_auth，并搭配 AEAD 或协议插件，可以有效隐藏流量特征，降低被封锁风险。不同网络环境需测试选择最优组合。<hr />    </div>
+        可以。Clash 支持导入多个 Profile URL，用户可在“配置”面板切换不同订阅源。多个配置之间互不干扰，方便区分不同地区或用途的线路。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的日志功能如何调试连接问题？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 的脚本功能能实现哪些高级操作？</h5></div>
     <div class="panel-body">
-        Mihomo 日志可显示节点连接、请求延迟和错误信息。通过分析日志，可以判断节点是否不可达、TLS 握手失败或规则匹配异常，从而快速定位问题并解决。    </div>
+        QuantumultX 支持 JavaScript 脚本，可用于请求重写、数据修改、自动签到、广告拦截等功能。用户可通过脚本中心导入开源脚本，极大增强应用的灵活性与自动化能力。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的混淆插件如何提高抗封锁能力？</h5></div>
+    <div class="panel-body">
+        通过混淆插件可以模拟正常 HTTPS 或 HTTP 流量，隐藏真实通信特征。合理选择混淆方式，可有效避免 DPI 检测，提高节点可用性和连接稳定性，保证长期科学上网。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 协议支持 UDP 吗？</h5></div>
+    <div class="panel-body">
+        支持。Trojan 在最新版本中已支持 UDP 转发，能够满足游戏、视频会议等实时性需求较高的应用场景，性能和兼容性都有明显提升。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -449,16 +449,16 @@ ssserver -p 8388 -k </span><span><span class="hljs-string">"你的密码"</span>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-14-free-subscribe-node.htm" title="3月14日→19.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月14日→19.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-13-free-high-speed-nodes.htm" title="3月13日→18.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月13日→18.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-15-free-subscribe-node.htm" title="3月15日→20.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月15日→20.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-28-node-share-links.htm" title="3月28日→18M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月28日→18M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-18-node-share-links.htm" title="3月18日→18.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月18日→18.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-16-node-share-links.htm" title="3月16日→18.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月16日→18.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-10-free-node-subscribe.htm" title="3月10日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月10日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-4-free-node-subscribe-links.htm" title="3月4日→19.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月4日→19.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-27-free-node-subscribe-links.htm" title="3月27日→19.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月27日→19.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-20-free-high-speed-nodes.htm" title="3月20日→20.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月20日→20.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-21-free-subscribe-node.htm" title="3月21日→22M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月21日→22M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-12-node-share.htm" title="3月12日→20.5M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月12日→20.5M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-14-free-subscribe-node.htm" title="3月14日→19.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月14日→19.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-7-node-share.htm" title="3月7日→21.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月7日→21.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-23-free-node-subscribe.htm" title="3月23日→20.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月23日→20.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-8-node-share-links.htm" title="3月8日→18.5M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月8日→18.5M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-12-node-share-links.htm" title="4月12日→22.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址">4月12日→22.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-18-node-share-links.htm" title="3月18日→18.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址">3月18日→18.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -470,7 +470,7 @@ ssserver -p 8388 -k </span><span><span class="hljs-string">"你的密码"</span>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
