@@ -390,9 +390,9 @@ systemctl status v2ray
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Rule Provider 功能有哪些好处？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 支持规则分流功能吗？</h5></div>
     <div class="panel-body">
-        Rule Provider 可通过远程订阅自动更新规则和节点，减少手动维护。结合策略组，可实现分流规则和节点的自动同步，保证分流效率和网络可用性。<hr />    </div>
+        支持。Surfboard 可通过规则文件和策略组将不同类型流量分配到指定节点。保证网页浏览、视频和游戏走最优线路，提高访问速度和整体网络稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的多路复用功能有哪些优势？</h5></div>
@@ -400,19 +400,9 @@ systemctl status v2ray
         多路复用允许多个请求共享同一 QUIC 连接，减少握手次数和延迟。高并发情况下可以提升吞吐量和稳定性，特别适合短连接频繁请求的应用，如游戏或即时通讯。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何设置流量配额限制？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 如何导入 URL 格式的订阅？</h5></div>
     <div class="panel-body">
-        管理员可在 Hiddify Next 面板为每个用户设置流量上限或带宽限制。超过配额后可自动阻止或降速，保证服务器资源合理分配，防止单用户占用过多带宽。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 如何配置透明代理？</h5></div>
-    <div class="panel-body">
-        Mellow 的透明代理功能可通过 TUN 模式或 WinDivert 实现。启用后系统流量会自动通过代理转发，无需手动设置浏览器代理，适合全局科学上网场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 Routing 设置可以实现什么？</h5></div>
-    <div class="panel-body">
-        V2Ray 的 Routing 系统支持基于域名、IP、端口或协议的智能分流。用户可以指定特定网站直连、部分服务走代理，还能创建黑白名单，实现灵活的网络访问控制。<hr />    </div>
+        在 Potatso Lite 的配置页点击“导入”，粘贴订阅链接并确认导入。系统会自动解析节点列表，可在主界面查看并选择不同线路。部分机场支持一键导入格式，省去手动配置步骤。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的 Rule Provider 有什么作用？</h5></div>
@@ -420,24 +410,34 @@ systemctl status v2ray
         Rule Provider 是 Clash 的规则分发机制。用户可以订阅不同的规则集，比如广告拦截、社交媒体、流媒体等，实现按需加载。它让配置文件更加简洁、动态更新，并支持多源规则管理。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow TUN 模式如何拦截全局流量？</h5></div>
+    <div class="panel-body">
+        TUN 模式会拦截系统 IP 层的所有流量，实现全局代理。相比 SOCKS5 只影响部分应用，TUN 可以覆盖游戏、视频和浏览器等所有流量，提高科学上网体验的全面性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的 Rule Provider 功能有哪些好处？</h5></div>
+    <div class="panel-body">
+        Rule Provider 可通过远程订阅自动更新规则和节点，减少手动维护。结合策略组，可实现分流规则和节点的自动同步，保证分流效率和网络可用性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的 Routing 设置可以实现什么？</h5></div>
+    <div class="panel-body">
+        V2Ray 的 Routing 系统支持基于域名、IP、端口或协议的智能分流。用户可以指定特定网站直连、部分服务走代理，还能创建黑白名单，实现灵活的网络访问控制。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 如何配置透明代理？</h5></div>
+    <div class="panel-body">
+        Mellow 的透明代理功能可通过 TUN 模式或 WinDivert 实现。启用后系统流量会自动通过代理转发，无需手动设置浏览器代理，适合全局科学上网场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 服务端出现 handshake timeout 如何处理？</h5></div>
     <div class="panel-body">
         该错误通常由网络延迟或证书配置不一致导致。请检查服务器带宽是否充足、TLS 证书链完整，并确保客户端 SNI 与证书匹配。必要时更换节点或优化拥塞控制算法。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 如何导入 URL 格式的订阅？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 如何设置流量配额限制？</h5></div>
     <div class="panel-body">
-        在 Potatso Lite 的配置页点击“导入”，粘贴订阅链接并确认导入。系统会自动解析节点列表，可在主界面查看并选择不同线路。部分机场支持一键导入格式，省去手动配置步骤。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 支持规则分流功能吗？</h5></div>
-    <div class="panel-body">
-        支持。Surfboard 可通过规则文件和策略组将不同类型流量分配到指定节点。保证网页浏览、视频和游戏走最优线路，提高访问速度和整体网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow TUN 模式如何拦截全局流量？</h5></div>
-    <div class="panel-body">
-        TUN 模式会拦截系统 IP 层的所有流量，实现全局代理。相比 SOCKS5 只影响部分应用，TUN 可以覆盖游戏、视频和浏览器等所有流量，提高科学上网体验的全面性。    </div>
+        管理员可在 Hiddify Next 面板为每个用户设置流量上限或带宽限制。超过配额后可自动阻止或降速，保证服务器资源合理分配，防止单用户占用过多带宽。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -485,16 +485,16 @@ systemctl status v2ray
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-7-31.htm" title="7月31日→22.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月31日→22.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-7.htm" title="8月7日→21.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月7日→21.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-5.htm" title="8月5日→20.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月5日→20.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-node-share.htm" title="8月2日→18.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月2日→18.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-free-node-subscribe.htm" title="7月30日→22.5M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月30日→22.5M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-11.htm" title="8月11日→18.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月11日→18.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-19-free-node-subscribe-links.htm" title="7月19日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月19日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-15.htm" title="8月15日→22.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月15日→22.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-4-free-subscribe-node.htm" title="8月4日→19.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月4日→19.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-12-free-node-subscribe.htm" title="8月12日→20.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月12日→20.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-18-node-share.htm" title="7月18日→23M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月18日→23M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-19-free-node-subscribe-links.htm" title="7月19日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月19日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-22-free-subscribe-node.htm" title="7月22日→20.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月22日→20.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-20-free-subscribe-node.htm" title="8月20日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月20日→19.2M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-27-node-share-links.htm" title="7月27日→18M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月27日→18M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-7-20-node-share.htm" title="7月20日→20.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月20日→20.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-21.htm" title="8月21日→18.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址">8月21日→18.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-28-node-share.htm" title="7月28日→20.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址">7月28日→20.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -506,10 +506,10 @@ systemctl status v2ray
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
                     </ul>
     </div>
