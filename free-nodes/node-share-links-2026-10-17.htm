@@ -284,17 +284,13 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-10-16-free-subscribe-node.htm">10月16日→20.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></p>
+        <p>下一个：<a href="/free-nodes/2026-10-18-node-share.htm">10月18日→22.5M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何实现流量精细分流？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何按端口匹配流量分配节点？</h5></div>
     <div class="panel-body">
-        通过定义 routing 规则和策略组，Sing-box 可以根据域名、IP、端口或协议类型精细分流流量。例如视频走高速节点，网页走备用节点，实现流量优化和网络加速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何检测并处理订阅中的死节点？</h5></div>
-    <div class="panel-body">
-        定期运行批量测速脚本或使用客户端内置的 url-test、health-check 功能，自动标记或移除响应超时或重连失败的节点。结合订阅更新策略可自动替换或提醒用户维护节点列表。<hr />    </div>
+        Sing-box 支持按端口匹配流量，将不同应用的流量分配到指定节点。结合策略组使用，可实现精准分流，优化访问速度和网络稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的传输协议选择对性能有何影响？</h5></div>
@@ -302,9 +298,14 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
         V2Ray 支持 TCP、WebSocket、gRPC、QUIC 等多种传输协议。不同协议在延迟、抗封锁和吞吐量上差异明显。用户可根据网络环境选择最优协议，以获得稳定且高速的连接体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 全局代理与规则代理的适用场景是什么？</h5></div>
+    <div class="panel-heading"><h5>WinXray 的多节点分流如何设置？</h5></div>
     <div class="panel-body">
-        全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理适合只对特定应用或网站进行代理。用户可根据需求选择，提高带宽利用和网络效率。<hr />    </div>
+        可通过策略组定义不同节点用途和优先级，结合规则文件将特定域名、IP 或端口流量分流至相应节点，实现游戏、视频或网页加速，并优化整体网络性能和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何检测并处理订阅中的死节点？</h5></div>
+    <div class="panel-body">
+        定期运行批量测速脚本或使用客户端内置的 url-test、health-check 功能，自动标记或移除响应超时或重连失败的节点。结合订阅更新策略可自动替换或提醒用户维护节点列表。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的 UDP 转发功能需要注意什么？</h5></div>
@@ -312,19 +313,19 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
         SSR 的 UDP 转发需要服务端和客户端同时开启，同时确保服务器防火墙允许 UDP 通信。UDP 流量不可靠，可能在高丢包网络中导致连接中断，需要测试稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 全局代理与规则代理的适用场景是什么？</h5></div>
+    <div class="panel-body">
+        全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理适合只对特定应用或网站进行代理。用户可根据需求选择，提高带宽利用和网络效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何实现流量精细分流？</h5></div>
+    <div class="panel-body">
+        通过定义 routing 规则和策略组，Sing-box 可以根据域名、IP、端口或协议类型精细分流流量。例如视频走高速节点，网页走备用节点，实现流量优化和网络加速。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的 outbound freedom 模式有什么作用？</h5></div>
     <div class="panel-body">
         freedom 是直连模块，可用于分流策略中实现部分流量直连。用户可在 routing 中设置匹配规则，将国内域名或局域网 IP 指向 freedom 出口，从而减少代理开销和延迟。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 在高封锁环境下的优势是什么？</h5></div>
-    <div class="panel-body">
-        VLESS 去掉了内置加密，依赖 TLS 层安全，减少被 DPI 检测的特征。结合 XTLS 或 Reality 模式，可以更好地隐藏流量，提高在高封锁网络中的稳定性与隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按端口匹配流量分配节点？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持按端口匹配流量，将不同应用的流量分配到指定节点。结合策略组使用，可实现精准分流，优化访问速度和网络稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何通过域名规则实现精准分流？</h5></div>
@@ -332,9 +333,9 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
         Sing-box 支持根据域名匹配流量，将不同网站或应用流量分配到指定节点。结合策略组，可实现自动切换最优节点，优化访问速度和网络稳定性，提高整体使用体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的多节点分流如何设置？</h5></div>
+    <div class="panel-heading"><h5>VLESS 在高封锁环境下的优势是什么？</h5></div>
     <div class="panel-body">
-        可通过策略组定义不同节点用途和优先级，结合规则文件将特定域名、IP 或端口流量分流至相应节点，实现游戏、视频或网页加速，并优化整体网络性能和稳定性。    </div>
+        VLESS 去掉了内置加密，依赖 TLS 层安全，减少被 DPI 检测的特征。结合 XTLS 或 Reality 模式，可以更好地隐藏流量，提高在高封锁网络中的稳定性与隐蔽性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -382,16 +383,16 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-15.htm" title="10月15日→21.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月15日→21.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-28-free-node-subscribe.htm" title="9月28日→21M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月28日→21M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-16-free-subscribe-node.htm" title="10月16日→20.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月16日→20.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-26-free-node-subscribe.htm" title="9月26日→18.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月26日→18.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-2-free-subscribe-node.htm" title="10月2日→22.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月2日→22.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-24-free-subscribe-node.htm" title="9月24日→19.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月24日→19.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-9.htm" title="10月9日→21.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月9日→21.9M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-11.htm" title="9月11日→20.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月11日→20.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-19.htm" title="9月19日→22.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月19日→22.6M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-subscribe-node.htm" title="9月4日→21.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月4日→21.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-16-free-node-subscribe.htm" title="9月16日→20.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月16日→20.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-6-node-share.htm" title="10月6日→23M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月6日→23M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-7.htm" title="10月7日→19.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月7日→19.7M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-5.htm" title="10月5日→21.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月5日→21.4M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-21.htm" title="9月21日→20.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月21日→20.8M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-11.htm" title="10月11日→20.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月11日→20.3M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-22-node-share.htm" title="9月22日→22M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月22日→22M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-20-free-node-subscribe.htm" title="10月20日→19.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">10月20日→19.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-7.htm" title="9月7日→22.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址">9月7日→22.1M/S|2025年最新免费节点Bifrostv Node订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -403,7 +404,7 @@ A：使用在线YAML格式校验工具，或Clash内置的日志查看功能排�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
